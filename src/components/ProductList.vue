@@ -3,7 +3,7 @@
     <h1>Product List</h1>
     <img v-if="loading" src="https://loading.io/mod/spinner/spinner/sample.gif">
     <ul v-else>
-      <li v-for="(product, index) in products" :key="index">{{product.title}} - {{product.price}} -  {{product.inventory}} 
+      <li v-for="(product, index) in products" :key="index">{{product.title}} - {{product.price | currency }} -  {{product.inventory}} 
         <button @click="addProductToCart(product)">Add to cart</button>
       </li>
     </ul>
