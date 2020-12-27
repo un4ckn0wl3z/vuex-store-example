@@ -31,6 +31,11 @@ export default new Vuex.Store({
             })
             return total
         },
+        productIsInStock () {
+            return (product) => {
+                return product.inventory > 0
+            }
+        },
     },
     actions: { // == method, usaully async
         fetchProducts (context) {
@@ -45,7 +50,7 @@ export default new Vuex.Store({
         },
         addProductToCart (context, product) {
             
-            if (product.inventory > 0) {
+            if (context.getters.productIsInStock(product)) {
                 const cartItem = context.state.cart.find(item => item.id === product.id)
                 if (!cartItem) {
                     // pushProductToCart
