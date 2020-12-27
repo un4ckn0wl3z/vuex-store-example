@@ -22,7 +22,7 @@ export default {
       total: 'cartTotal'
     }),
     ...mapState({
-      checkoutStatus: 'checkoutStatus'
+      checkoutStatus: state => state.cart.checkoutStatus
     })
   },
   methods: {
